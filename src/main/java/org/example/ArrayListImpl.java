@@ -35,6 +35,24 @@ public class ArrayListImpl<E> extends ArrayList<E> {
         elements = new Object[capacity];
     }
 
+    /*
+     * Constructor with parameter.
+     * @param capacity - value for size array 'elements'
+     */
+    public ArrayListImpl(int capacity) {
+        if(capacity < 0) {
+            throw new IllegalArgumentException();
+        }
+
+        if (capacity == 0){
+            elements = new Object[capacity];
+        } else {
+            this.capacity = capacity;
+            size = 0;
+            elements = new Object[capacity];
+        }
+    }
+
     /**
      * Method adding element to end of collection
      *
