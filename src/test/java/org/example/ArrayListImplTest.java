@@ -12,7 +12,7 @@ class ArrayListImplTest {
 
     @Test
     void add_correctAddedElementToList() {
-        List<String> arrayListImpl = new ArrayListImpl<String>();
+        ArrayListImpl<String> arrayListImpl = new ArrayListImpl<String>();
         String actual = "1000";
         arrayListImpl.add(actual);
 
@@ -20,10 +20,22 @@ class ArrayListImplTest {
 
         assertEquals(actual, expected);
     }
+    @Test
+    void add_correctAddingThousandElementToListByIndex() {
+    ArrayListImpl<Object> arrayListImpl = new ArrayListImpl<>();
+        for (int i = 0; i < 1000; i++) {
+            arrayListImpl.add(0, new Object());
+        }
+            int actual = 1000;
+
+            int expected = arrayListImpl.size();
+
+            assertEquals(actual, expected);
+    }
 
     @Test
     void add_correctAddingElementToListByIndex() {
-        List<String> arrayListImpl = new ArrayListImpl<String>();
+        ArrayListImpl<String> arrayListImpl = new ArrayListImpl<String>();
         for (int i = 0; i <= 10; i++) {
             arrayListImpl.add("" + i);
         }
@@ -37,15 +49,15 @@ class ArrayListImplTest {
 
     @Test
     void add_throwExceptionIfAddIncorrectIndex() {
-        List<String> arrayListImpl = new ArrayListImpl<String>();
+        ArrayListImpl<String> arrayListImpl = new ArrayListImpl<String>();
         String actual = "2222";
 
-        assertThrows(IndexOutOfBoundsException.class, () -> {arrayListImpl.add(0, actual);});
+        assertThrows(IndexOutOfBoundsException.class, () -> {arrayListImpl.add(255, actual);});
     }
 
     @Test
     void get_correctGettingElementFromListByIndex() {
-        List<String> arrayListImpl = new ArrayListImpl<String>();
+        ArrayListImpl<String> arrayListImpl = new ArrayListImpl<String>();
         String actual = "0";
         arrayListImpl.add(actual);
 
@@ -56,7 +68,7 @@ class ArrayListImplTest {
 
     @Test
     void remove_correctRemovingElementFromListByIndex() {
-        List<String> arrayListImpl = new ArrayListImpl<String>();
+        ArrayListImpl<String> arrayListImpl = new ArrayListImpl<String>();
         String actual = "0";
         arrayListImpl.add(actual);
         String expected = arrayListImpl.remove(0);
@@ -66,14 +78,14 @@ class ArrayListImplTest {
 
     @Test
     void add_throwExceptionIfRemoveElementByIncorrectIndex() {
-        List<String> arrayListImpl = new ArrayListImpl<String>();
+        ArrayListImpl<String> arrayListImpl = new ArrayListImpl<String>();
 
         assertThrows(IndexOutOfBoundsException.class, () -> {arrayListImpl.remove(0);});
     }
 
     @Test
     void clear_correctClearList() {
-        List<String> arrayListImpl = new ArrayListImpl<String>();
+        ArrayListImpl<String> arrayListImpl = new ArrayListImpl<String>();
         for (int i = 0; i <= 10; i++) {
             arrayListImpl.add("" + i);
         }
@@ -83,7 +95,7 @@ class ArrayListImplTest {
 
     @Test
     void size_gettingSizeOfList() {
-        List<String> arrayListImpl = new ArrayListImpl<String>();
+        ArrayListImpl<String> arrayListImpl = new ArrayListImpl<String>();
         for (int i = 0; i <= 10; i++) {
             arrayListImpl.add("" + i);
         }
